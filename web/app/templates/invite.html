@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Название конференции</th>
+        <th scope="col">Время проведения</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    {%for confer in confers%}
+    <tr>
+        <th scope="row">{{loop.index}}</th>
+        <td>{{confer.name}}</td>
+        <td>{{confer.time}}</td>
+    </tr>
+    {%endfor%}
+    </tbody>
+</table>
+{% endblock  %}
