@@ -3,7 +3,7 @@ from flask import Blueprint, render_template, flash, redirect, url_for, request
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 
 
-from models import User
+from models import Ticket, Train
 
 bp = Blueprint('auth', __name__, url_prefix='/auth')
 
@@ -19,7 +19,7 @@ def init_login_manager(app):
     login_manager.init_app(app)
 
 def load_user(user_id):
-    user = User.query.get(user_id)
+    user = Ticket.query.get(user_id)
     return user
 
 def check_rights():
@@ -39,7 +39,7 @@ def login():
         login = request.form.get('login')
         password = request.form.get('password')
         if login and password:
-            user = User.query.filter_by(login=login).first()
+            user = Ticket.query.filter_by(login=login).first()
             if user and user.check_password(password):
                 login_user(user)
                 flash('Вы успешно аутентифицированы.', 'success')

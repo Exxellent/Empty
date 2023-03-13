@@ -2,4 +2,29 @@
 
 {% block content %}
 
-{% endblock  %}
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col"># поезда</th>
+        <th scope="col">Вокзал отправления</th>
+        <th scope="col">Вокзал прибытия</th>
+        <th scope="col">Время отправления</th>
+        <th scope="col">Время прибытия</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    {%for train in trains%}
+    <tr>
+        <th scope="row">{{loop.index}}</th>
+        <td>{{train.departure_station}}</td>
+        <td>{{train.arrival_station}}</td>
+        <td>{{train.time_departure}}</td>
+        <td>{{train.time_arrival}}</td>
+
+    </tr>
+    {%endfor%}
+    </tbody>
+</table>
+
+{% endblock %}
