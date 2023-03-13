@@ -34,8 +34,8 @@ def index():
     products = Product.query.all()
     return render_template("index.html", products = products)
 
-@app.route('/seat')
-def seat():
+@app.route('/order')
+def order():
     return render_template("order.html", current_user=current_user)
 
 
