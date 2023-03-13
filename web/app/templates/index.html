@@ -5,23 +5,20 @@
 <table class="table">
     <thead>
     <tr>
-        <th scope="col"># поезда</th>
-        <th scope="col">Вокзал отправления</th>
-        <th scope="col">Вокзал прибытия</th>
-        <th scope="col">Время отправления</th>
-        <th scope="col">Время прибытия</th>
+        <th scope="col"># товара</th>
+        <th scope="col">Наименование</th>
+        <th scope="col">Цена</th>
+        <th scope="col">Описание</th>
 
     </tr>
     </thead>
     <tbody>
-    {%for train in trains%}
+    {%for product in products%}
     <tr>
         <th scope="row">{{loop.index}}</th>
-        <td>{{train.departure_station}}</td>
-        <td>{{train.arrival_station}}</td>
-        <td>{{train.time_departure}}</td>
-        <td>{{train.time_arrival}}</td>
-
+        <td>{{product.name_product}}</td>
+        <td>{{product.price}}</td>
+        <td>{{product.desc}}</td>
     </tr>
     {%endfor%}
     </tbody>

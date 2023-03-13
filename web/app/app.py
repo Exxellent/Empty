@@ -21,7 +21,7 @@ metadata = MetaData(naming_convention=convention)
 db = SQLAlchemy(app, metadata=metadata)
 migrate = Migrate(app, db)
 
-from models import Train, Ticket
+from models import Product, Orders
 from auth import bp as auth_bp, init_login_manager, check_rights
 
 
@@ -31,12 +31,12 @@ app.register_blueprint(auth_bp)
     
 @app.route("/")
 def index():
-    trains = Train.query.all()
-    return render_template("index.html", trains = trains)
+    products = Product.query.all()
+    return render_template("index.html", products = products)
 
 @app.route('/seat')
 def seat():
-    return render_template("seat.html")
+    return render_template("order.html", current_user=current_user)
 
 
 
